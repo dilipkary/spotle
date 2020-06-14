@@ -73,7 +73,7 @@ df['tweet'] = df['tweet'].replace(re.compile(r"(^| ).( |$)"), " ")
 
 print("Removing tweets having words less than 2 words")
 #drops tweets less than 2 words
-df.drop(df[df['tweet'].str.count(" ") < 1].index , inplace=True)
+df.drop(df[df['tweet'].str.count(" ") < 3].index , inplace=True)
 #reset index after dropping
 df = df.reset_index(drop=True)
 print("tweets having words less than 2 words are removed...")
