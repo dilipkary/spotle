@@ -37,7 +37,7 @@ from sklearn.metrics import roc_auc_score
 X_train_vectorized = vect.transform(X_train)
 from sklearn.metrics import accuracy_score
 
-c_val =[0.2,0.75, 1, 2, 3, 4, 5, 10,14,19,20]
+c_val =[0.2,0.75, 1, 2, 3, 4, 5,10,25]
 for c in c_val:
     model = LogisticRegression(C=c,solver='saga')
     model.fit(X_train_vectorized, y_train)

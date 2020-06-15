@@ -15,11 +15,11 @@ def polararity_gen(row):
     text = row['tweet']
     score=analyser.polarity_scores(text)['compound']
     pl=''
-    if score > 0.25:
+    if score > 0.05:
         pl='positive'
     elif score <= 0.0 and text.count(" ") > 3:#-0.05:
         pl='negative'
-    elif score >= 0 and score <= 0.25 :
+    elif score >= 0 and score <= 0.05 :
         pl='neutral'
     
     return pl

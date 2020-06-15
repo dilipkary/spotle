@@ -10,14 +10,22 @@ import matplotlib.pyplot as plt
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
+
+
 #stops words
 stop = stopwords.words('english')
 #english words
 english_word = set(nltk.corpus.words.words())
 print('naam' in english_word)
 #reading the dataset in csv file
-df= pd.read_csv('newdata.csv')
+df= pd.read_csv('hashtag_data.csv')
+to_drop=['conversation_id','timezone','name','place','mentions','urls','photos',
+         'cashtags','link','retweet','quote_url','video','near','geo','source',
+         'user_rt_id','user_rt','retweet_id','reply_to','retweet_date','translate','trans_src',
+         'trans_dest']
 
+#drop columns
+df.drop(to_drop, inplace=True, axis=1)
 totallen=len(df)
 print("Intial total length of the dataset",len(df))
 
